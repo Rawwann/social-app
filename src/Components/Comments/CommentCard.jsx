@@ -2,8 +2,8 @@ import React from 'react'
 import { Card, CardBody, Divider } from '@heroui/react'
 import AppCardHeader from '../Shared/AppCardHeader/AppCardHeader';
 
-export default function CommentCard({ comment }) {
 
+export default function CommentCard({ comment }) {
     return (
         <Card fullWidth={true}>
             <AppCardHeader

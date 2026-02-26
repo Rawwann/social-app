@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = "https://linked-posts.routemisr.com"
+const BASE_URL = "https://route-posts.routemisr.com"
 const AUTH_ENDPOINT = "users";
 
 
