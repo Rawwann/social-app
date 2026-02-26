@@ -39,7 +39,7 @@ export default function CommentItem({ comment, queryKey }) {
     console.log("deleteComment source:", deleteComment.toString());
 
     return (
-        < div className="p-3 border-b border-gray-100 flex flex-col gap-2" >
+        <div div className="p-3 border-b border-gray-100 flex flex-col gap-2" >
             {
                 isEditing ? (
                     <div className="flex flex-col gap-2" >
@@ -61,6 +61,6 @@ export default function CommentItem({ comment, queryKey }) {
                     </div>
                 )
             }
-        </>
+        </div>
     );
 }

@@ -15,7 +15,6 @@ export default function CommentForm({ postId, queryKey }) {
     const { mutate, isPending } = useMutation({
         mutationFn: (content) => addNewComment(postId, content),
         onSuccess: () => {
-            alert("Comment added!");
             reset();
             queryClient.invalidateQueries({ queryKey });
         }
