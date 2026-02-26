@@ -5,7 +5,6 @@ import { AuthContext } from '../../Context/AuthContext';
 import PostListing from '../../Components/Posts/PostListing';
 import CreatePostForm from '../../Components/Posts/CreatePostForm';
 import { useParams } from 'react-router-dom';
-import { Helmet } from "react-helmet-async";
 
 
 export default function Profile() {
@@ -15,11 +14,6 @@ export default function Profile() {
 
     return (
         <>
-            <Helmet>
-                <title>Kudo | {userInfo?.name ? userInfo.name : "Profile"}</title>
-                <meta name="description" content={`View the profile of ${userInfo?.name}`} />
-            </Helmet>
-
             <div className="max-w-6xl mx-auto px-4 pt-0 pb-8">
                 {/* Profile Header Section */}
                 <Card className="mb-6 shadow-none border-none bg-transparent">

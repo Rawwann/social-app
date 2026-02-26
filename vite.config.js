@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react-helmet-async']  // ← ضيف ده
+      external: ['react-helmet-async']
     }
   }
 })
