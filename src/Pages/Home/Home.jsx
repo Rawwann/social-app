@@ -1,16 +1,16 @@
 import React from 'react'
 import PostListing from '../../Components/Posts/PostListing'
 import CreatePostForm from '../../Components/Posts/CreatePostForm'
-import { Helmet } from "react-helmet";
+import { HelmetProvider } from 'react-helmet-async';
 
 export default function Home() {
     return (
         <>
             <div>
-                <Helmet>
-                    <title>Home - Kudo Posts</title>
-                    <meta name="description" content="Welcome to your news feed on Kudo Posts" />
-                </Helmet>
+                <HelmetProvider>
+                    <title>Kudo | Home</title>
+                    <meta name="description" content="Kudo Posts Home Feed" />
+                </HelmetProvider>
                 <CreatePostForm queryKey="all-posts" />
                 <PostListing />
             </div>
