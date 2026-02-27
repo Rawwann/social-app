@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ValidationMessage({ message }) {
-    return (
-        <>{filed && isTouched && <p className="text-red-600"}</>
-    );
+    if (!message) return null;
+    return <p className="text-red-600 text-sm">{message}</p>;
 }

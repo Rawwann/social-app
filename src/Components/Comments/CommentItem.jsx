@@ -4,14 +4,15 @@ import { Button, Input } from '@heroui/react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { deleteComment, updateComment } from '../../Services/comments.service';
 
-export default function CommentItem({ comment, queryKey }) {
+
+export default function CommentItem({ comment, queryKey, postId }) {
     const queryClient = useQueryClient();
     const [isEditing, setIsEditing] = useState(false);
     const [newContent, setNewContent] = useState(comment.content);
-    const commentId = comment?.id || comment?._id;
+    const commentId = comment?._id;
 
     const { mutate: deleteMutate, isPending: isDeleting } = useMutation({
-        mutationFn: () => deleteComment(commentId),
+        mutationFn: () => deleteComment(postId, commentId),
         onSuccess: () => {
             alert("Comment deleted!");
             queryClient.invalidateQueries({ queryKey });
@@ -22,7 +23,11 @@ export default function CommentItem({ comment, queryKey }) {
     });
 
     const { mutate: updateMutate, isPending: isUpdating } = useMutation({
-        mutationFn: () => updateComment(commentId, newContent),
+        mutationFn: () => {
+            const formData = new FormData();
+            formData.append('content', newContent);
+            return updateComment(postId, commentId, formData);
+        },
         onSuccess: () => {
             alert("Comment updated!");
             setIsEditing(false);
@@ -56,8 +61,6 @@ export default function CommentItem({ comment, queryKey }) {
                             <Button size="sm" variant="light" onClick={() => setIsEditing(true)}>Edit</Button>
                             <Button onClick={() => deleteMutate(commentId)}>Delete</Button>
                         </div>
-
-
                     </div>
                 )
             }

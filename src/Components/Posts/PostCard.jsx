@@ -31,7 +31,7 @@ export default function PostCard({ post, isDetails = false }) {
             <div className="bg-gray-50/50 p-4 rounded-b-2xl space-y-4" >
                 {commentsToDisplay.length > 0 ? (
                     commentsToDisplay.map((comment) => (
-                        <CommentCard key={comment._id} comment={comment} />
+                        <CommentCard key={comment._id} comment={comment} postId={post._id} />
                     ))
                 ) : (
                     isDetails && <p className="text-gray-400 text-sm text-center py-2">No comments found for this post.</p>
@@ -44,9 +44,9 @@ export default function PostCard({ post, isDetails = false }) {
                 )}
 
                 <CommentForm
-                    postId={post._id}
-                    queryKey={isDetails ? ['single-post', post._id] : ['all-posts']}
-                />            </div>
+                    postId={post._id} queryKey={isDetails ? ['single-post', post._id] : ['all-posts']}
+                />
+            </div>
         </Card>
     );
 }
