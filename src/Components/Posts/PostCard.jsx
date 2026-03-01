@@ -15,7 +15,13 @@ export default function PostCard({ post, isDetails = false }) {
 
     return (
         <Card className="max-w-2xl mx-auto -mt-6 p-2 shadow-sm border border-default-200">
-            <AppCardHeader user={{ ...post.user, createdAt: post.createdAt }} isPost={true} postId={post._id} />
+            <AppCardHeader
+                user={{ ...post.user, createdAt: post.createdAt }}
+                isPost={true}
+                itemId={post._id}
+                postId={post._id}
+                postContent={post.body}
+            />
             <Divider />
             <CardBody className="py-4">
                 <p className="mb-4 text-gray-800">{post.body}</p>
